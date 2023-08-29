@@ -1,0 +1,10 @@
+<%
+var line;
+while (line = yield getLine()) {
+    if (Math.random() > 0.5) { %>
+        <b><%= line %></b><br>
+ <% } else { %>
+        <i><%= line %></i><br>
+ <% }
+}
+%>

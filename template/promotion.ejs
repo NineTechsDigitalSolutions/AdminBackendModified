@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .main{
+          width: 50%;
+          background: white;
+          padding: 20px;
+          color: black;
+          margin-top: -70px;
+          margin-bottom: 30px;
+          border-radius: 10px;
+          margin-left: auto;
+          margin-right: auto;
+          box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14),0px 1px 10px 0px rgba(0, 0, 0, 0.12) !important;
+        }
+      .info img {
+        width: 30%;
+        margin: 0 auto 30px auto;
+        display: flex;
+      }
+      .content2{
+          margin-bottom: 30px;
+      }
+      .content2 img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        margin-right: 10px;
+        object-fit: contain;
+      }
+      .content2 p{
+        opacity: 0.7;
+        font-size: 14px;
+        margin: 0;
+      }
+      .content2 h3{
+        margin: 0;
+      }
+      .back{
+        background-color: #89226b;
+        color: black;
+        height: 250px;
+      }
+      .content h4{
+          font-size: 30px;
+          font-style: italic;
+      }
+      .content h1{
+        text-align: center;
+      }
+      .content h4,
+      .content .desc {
+        margin-bottom: 10px;
+      }
+      .content .desc {
+        font-size: 16px;
+        letter-spacing: 1px;
+      }
+      .content button a{
+          color: white;
+          text-decoration: none;
+      }
+      .content button{
+          background-color: red;
+          color: white;
+          border: none;
+          padding: 8px 15px;
+          border-radius: 5px;
+          letter-spacing: 1px;
+          margin-bottom: 30px;
+      }
+      .content button:hover{
+          background-color: black;
+      }
+      .footer{
+          background-color: #f0f4fb;
+          color: black;
+          text-align: center;
+          padding: 20px;
+      }
+    </style>
+  </head>
+  <body style="position: relative;">
+    <span style="opacity: 0"> <%= randomness %> </span>
+    <div class="back" />
+    <div class="main">
+        <div class="info">
+          <img src=<%=logo%> alt="company logo" />
+      </div>
+      <div class="content">
+        <h1>Welcome</h1>
+        <p class="desc">
+          <b>Title</b> : <%=subject%>
+          <br/>
+          <br/>
+          <br/>
+        <b>Description</b><br/><br/>
+          <%=message%>
+          <br />
+          <br />
+          <br/>
+          Regards,<br />
+          <br/>
+        </p>
+          <div class='content2'
+          style="display: flex;"
+          >
+          <img src=<%=logo%> alt="" />
+          <div
+          style="margin: auto 0;"
+          >
+              <p><%=vendorName%></p>
+          </div>
+          </div>
+      </div>
+      </div>
+        <div class='footer'>
+            <p><%=footerText%></p>
+        </div>
+    </div>
+    <span style="opacity: 0"><%=randomness%></span>
+  </body>
+</html>

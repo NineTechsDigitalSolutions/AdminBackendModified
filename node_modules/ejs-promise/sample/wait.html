@@ -1,0 +1,15 @@
+<% 
+   var str = new Buffer(1024 * 1024);
+   str.fill('test');
+   str = str.toString();
+   
+   var i = 1;
+   while (true) { 
+%>
+    <% 
+       yield wait(i);
+    %>
+    <%= str %><br>
+    <% 
+    %>
+<% } %>
