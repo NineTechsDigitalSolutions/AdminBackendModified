@@ -17,7 +17,7 @@ http.createServer(app);
 app.use(express.json({ extended: false }));
 app.use(cors());
 
-app.get("/", (req, res) => res.send("Server Running"));
+app.get("/", (req, res) => res.send("Server Running1"));
 
 app.use(multer().array("pictures"));
 
