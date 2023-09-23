@@ -6,6 +6,8 @@ const authorSchema = new Schema({
   designation: String,
   description: String,
   email: String,
+  address: String,
+  phone: String,
   profilePic: String,
   books: [
     {

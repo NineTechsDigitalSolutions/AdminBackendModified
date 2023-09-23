@@ -17,7 +17,7 @@ http.createServer(app);
 app.use(express.json({ extended: false }));
 app.use(cors());
 
-app.get("/", (req, res) => res.send("Server Running"));
+app.get("/", (req, res) => res.send("Server Running1"));
 
 app.use(multer().array("pictures"));
 
@@ -45,7 +45,7 @@ app.use("/notification", require("./routes/notification"));
 // app.use(express.static(require("path").join(__dirname, "/uploads")));
 
 mongoose
-  .connect("mongodb+srv://mlbadmin:mlbadmin123456@cluster0.k2vmdby.mongodb.net/test", {
+  .connect("mongodb+srv://mlb:4VFXOY91R63FdGA6@cluster0.k2k69pk.mongodb.net/?retryWrites=true&w=majority", {
     useUnifiedTopology: true,
     useNewUrlParser: true,
     useFindAndModify: false,
