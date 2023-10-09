@@ -1,3 +1,4 @@
+require('dotenv').config();
 const fs = require("fs");
 const AWS = require("aws-sdk");
 
@@ -8,7 +9,7 @@ exports.uploadImages = (req, res, next) => {
         return { ...file };
       });
 
-      // console.log("upload func ", images);
+      //  console.log("upload func ", images);
 
       const imagesUrl = [];
       const s3 = new AWS.S3({
@@ -34,6 +35,7 @@ exports.uploadImages = (req, res, next) => {
           if (!err) {
             imagesUrl.push(data.Location);
             if (imagesUrl.length == images.length) {
+              //console.log("Images Url",imagesUrl)
               req.awsImages = imagesUrl;
               next();
             }
@@ -59,3 +61,61 @@ exports.uploadImages = (req, res, next) => {
     });
   }
 };
+
+
+// const fs = require("fs");
+// const AWS = require("aws-sdk");
+
+// exports.uploadImages = (req, res, next) => {
+//   try {
+//     if (req.files && req.files.length > 0) {
+//       const images = req.files.map((file) => {
+//         return { ...file };
+//       });
+
+//       console.log("upload func ", images);
+
+//       const imagesUrl = [];
+//       const s3 = new AWS.S3({
+//         accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+//         secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+//       });
+
+//       images.forEach((item) => {
+//         let extension = item.originalname.split(".");
+//         const params = {
+//           Bucket: process.env.AWS_BUCKET_NAME,
+//           ContentType: "image/jpeg",
+//           Key:
+//             Date.now().toString() +
+//             Math.random() * 10000 +
+//             `.${extension[extension.length - 1]}`,
+//           Body: item.buffer,
+//         };
+
+//         s3.upload(params, function (err, data) {
+//           if (!err) {
+//             imagesUrl.push(data.Location);
+//             if (imagesUrl.length === images.length) {
+//               req.awsImages = imagesUrl;
+//               next();
+//             }
+//           } else {
+//             console.error('Error uploading image:', err);
+//             res.status(500).json({
+//               message: 'Error uploading image to S3',
+//             });
+//           }
+//         });
+//       });
+//     } else {
+//       next();
+//     }
+//   } catch (err) {
+//     console.error(err);
+//     res.status(500).json({
+//       message: err.toString(),
+//     });
+//   }
+// };
+

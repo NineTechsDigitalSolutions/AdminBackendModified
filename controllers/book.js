@@ -170,7 +170,22 @@ exports.getBook = async (req, res) => {
 
 exports.editBook = async (req, res) => {
   try {
-    const { id, frontUpdated, backUpdated, existingImages } = req.body;
+    //const { id, frontUpdated, backUpdated, existingImages } = req.body;
+    const { id, frontCover, backCover, bookImages } = req.body;
+    console.log("Id",id)
+    console.log("Aws",req.awsImages)
+    
+    //const { id, frontUpdated, backUpdated } = req.body;
+
+    // let existingImages;
+    // try {
+    //   console.log("Existing Images :",req.body)
+    //   existingImages = JSON.parse(req.body.bookImages);
+    // } catch (error) {
+    //   return res.status(400).json({
+    //     message: "Invalid JSON in existingImages",
+    //   });
+    // }
 
     console.log(`req.body`, req.body);
     let images = [];
@@ -186,24 +201,24 @@ exports.editBook = async (req, res) => {
       libraries: JSON.parse(req.body.libraries),
       previousSeriesLinks: JSON.parse(req.body.previousSeriesLinks),
     };
-    let bookPreviousImages = JSON.parse(existingImages);
+    let bookPreviousImages = JSON.parse(bookImages);
     Book.findByIdAndUpdate(id, payload, { new: true }, (err, doc) => {
       console.log("doc", doc);
 
       Book.findById(id).then(async (book) => {
         let bookNewImages = [];
 
-        if (JSON.parse(frontUpdated) && JSON.parse(backUpdated)) {
+        if (JSON.parse(frontCover) && JSON.parse(backCover)) {
           console.log("first");
           bookNewImages = [...images.slice(2, images.length)];
           book.frontCover = images?.[0];
           book.backCover = images?.[1];
-        } else if (JSON.parse(frontUpdated) && !JSON.parse(backUpdated)) {
+        } else if (JSON.parse(frontCover) && !JSON.parse(backCover)) {
           bookNewImages = [...images.slice(1, images.length)];
 
           console.log("second");
           book.frontCover = images?.[0];
-        } else if (!JSON.parse(frontUpdated) && JSON.parse(backUpdated)) {
+        } else if (!JSON.parse(frontCover) && JSON.parse(backCover)) {
           bookNewImages.push(images?.[0]);
           bookNewImages.push(...images.slice(2, images.length));
 
