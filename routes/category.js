@@ -1,6 +1,7 @@
 const express = require("express");
 
 const categoryController = require("../controllers/category");
+const userAuth = require("../middleware/userAuth")
 const router = express.Router();
 
 router.get("/get-all", categoryController.getAll);
