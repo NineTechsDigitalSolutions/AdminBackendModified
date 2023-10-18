@@ -43,6 +43,10 @@ const bookSchema = new Schema({
   bookImages: Array, //first five pages of the book,back cover,front cover
   backCover: String,
   frontCover: String,
+  bookUrl: String,
+  epubBook: String,
+  bookMp3UrlFemale: String,
+  bookMp3UrlMale: String,
   CreatedAt: {
     type: Date,
     default: Date.now,

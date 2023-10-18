@@ -163,3 +163,27 @@ exports.verifyCode = (req, res, next) => {
     res.status(500).json(err);
   }
 };
+
+
+exports.sendResponse = async (req, res) => {
+  try {
+    let awsUrl;
+    if (req.awsImages) {
+        awsUrl = req.awsImages?.[0];
+    }if(req.awsFiles){
+        awsUrl = req.awsFiles?.[0];
+    }
+
+    if (awsUrl) {
+      res.status(200).json({ awsUrl });
+    } else {
+      res.status(404).json({ message: 'AWS URL not found' });
+    }
+
+    
+  } catch (err) {
+    res.status(500).json({
+      message: err.toString(),
+    });
+  }
+};
