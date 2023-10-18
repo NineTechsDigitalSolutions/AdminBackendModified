@@ -3,26 +3,35 @@ const Author = require("../models/Author");
 
 exports.createBook = async (req, res) => {
   try {
-    let images = [];
-    if (req.awsImages?.length > 0) {
-      await req.awsImages.map((image) => {
-        images.push(image);
-      });
-    }
+
+    console.log("Book Images : ",req.body.bookImages)
+
+    // let images = [];
+    // if (req.awsImages?.length > 0) {
+    //   await req.awsImages.map((image) => {
+    //     images.push(image);
+    //   });
+    // }
     let payload = {
       ...req.body,
-      frontCover: images?.[0],
-      backCover: images?.[1],
+      //frontCover: images?.[0],
+      // backCover: images?.[1],
+      frontCover: req.body.frontCover,
+      backCover: req.body.backCover,
+      bookUrl: req.body.bookUrl,
+      epubBook: req.body.epubBook,
+      bookMp3UrlFemale: req.body.bookMp3UrlFemale,
+      bookMp3UrlMale: req.body.bookMp3UrlMale,
       previousSeriesLinks: req.body.previousSeriesLinks
         ? JSON.parse(req.body.previousSeriesLinks)
         : [],
       subCategory: JSON.parse(req.body.subCategory),
       libraries: JSON.parse(req.body.libraries),
-      bookImages: images.slice(2, images.length),
+      //bookImages: images.slice(2, images.length),
+      //bookImages: JSON.parse(req.body.bookImages),
+      bookImages: req.body.bookImages.slice(0, req.body.bookImages.length),
     };
 
-    console.log(`images`, images);
-    console.log("payload", payload);
 
     Book.create(payload, (err, doc) => {
       if (err)
