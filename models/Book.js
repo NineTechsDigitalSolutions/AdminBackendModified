@@ -10,6 +10,8 @@ const bookSchema = new Schema({
   translatedBy: String,
   publisher: String,
   printYear: String,
+  first_publisher: String,
+  first_printYear: String,
   ISBN: String,
   series: String,
   description: String,
