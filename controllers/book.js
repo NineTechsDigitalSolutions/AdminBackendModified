@@ -19,6 +19,7 @@ exports.createBook = async (req, res) => {
       frontCover: req.body.frontCover,
       backCover: req.body.backCover,
       bookUrl: req.body.bookUrl,
+      textBook: req.body.textBook,
       epubBook: req.body.epubBook,
       bookMp3UrlFemale: req.body.bookMp3UrlFemale,
       bookMp3UrlMale: req.body.bookMp3UrlMale,

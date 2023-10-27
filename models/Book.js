@@ -14,6 +14,7 @@ const bookSchema = new Schema({
   first_printYear: String,
   ISBN: String,
   series: String,
+  access_type: String,
   description: String,
   category: {
     type: Schema.Types.ObjectId,
@@ -46,6 +47,9 @@ const bookSchema = new Schema({
   backCover: String,
   frontCover: String,
   bookUrl: String,
+  publisher_pdf: String,
+  pdf_published_year: String,
+  textBook: String,
   epubBook: String,
   bookMp3UrlFemale: String,
   bookMp3UrlMale: String,
