@@ -10,8 +10,11 @@ const bookSchema = new Schema({
   translatedBy: String,
   publisher: String,
   printYear: String,
+  first_publisher: String,
+  first_printYear: String,
   ISBN: String,
   series: String,
+  access_type: String,
   description: String,
   category: {
     type: Schema.Types.ObjectId,
@@ -44,6 +47,31 @@ const bookSchema = new Schema({
   backCover: String,
   frontCover: String,
   bookUrl: String,
+  publisher_pdf: String,
+  pdf_published_year: String,
+  publisher_epub: String,
+  epub_published_year: String,
+
+  chapter_number_epub: Array,
+  chapter_name_epub: Array,
+  fileListEpubChapter: Array,
+
+  chapterNumbersTxt: Array,
+  chapterNamesTxt: Array,
+  fileListTxtChapter: Array,
+
+  publisher_text: String,
+
+  format_type: String,
+  audio_published_year: String,
+  total_duration: String,
+
+  chapterAudioMale: Array,
+  chapterAudioFemale: Array,
+  chapterAudioDramatic: Array,
+
+  text_published_year: String,
+  textBook: String,
   epubBook: String,
   bookMp3UrlFemale: String,
   bookMp3UrlMale: String,

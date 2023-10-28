@@ -32,6 +32,9 @@ exports.uploadFiles = (req, res, next) => {
             case "mp3":
               contentType = "audio/mpeg";
               break;
+            case "txt":
+              contentType = "text/plain"; // Set the content type for text files
+              break;  
             // Add more cases for other file types if needed
             default:
               contentType = "application/octet-stream"; // Default content type

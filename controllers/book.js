@@ -19,6 +19,7 @@ exports.createBook = async (req, res) => {
       frontCover: req.body.frontCover,
       backCover: req.body.backCover,
       bookUrl: req.body.bookUrl,
+      textBook: req.body.textBook,
       epubBook: req.body.epubBook,
       bookMp3UrlFemale: req.body.bookMp3UrlFemale,
       bookMp3UrlMale: req.body.bookMp3UrlMale,
@@ -30,6 +31,14 @@ exports.createBook = async (req, res) => {
       //bookImages: images.slice(2, images.length),
       //bookImages: JSON.parse(req.body.bookImages),
       bookImages: req.body.bookImages.slice(0, req.body.bookImages.length),
+      fileListEpubChapter: req.body.fileListEpubChapter.slice(0, req.body.fileListEpubChapter.length),
+      fileListTxtChapter: req.body.fileListTxtChapter.slice(0, req.body.fileListTxtChapter.length),
+
+      chapterAudioMale: req.body.chapterAudioMale.slice(0, req.body.chapterAudioMale.length),
+      chapterAudioFemale: req.body.chapterAudioFemale.slice(0, req.body.chapterAudioFemale.length),
+      chapterAudioDramatic: req.body.chapterAudioDramatic.slice(0, req.body.chapterAudioDramatic.length),
+
+      
     };
 
 
