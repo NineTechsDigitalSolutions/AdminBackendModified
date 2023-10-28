@@ -49,6 +49,28 @@ const bookSchema = new Schema({
   bookUrl: String,
   publisher_pdf: String,
   pdf_published_year: String,
+  publisher_epub: String,
+  epub_published_year: String,
+
+  chapter_number_epub: Array,
+  chapter_name_epub: Array,
+  fileListEpubChapter: Array,
+
+  chapterNumbersTxt: Array,
+  chapterNamesTxt: Array,
+  fileListTxtChapter: Array,
+
+  publisher_text: String,
+
+  format_type: String,
+  audio_published_year: String,
+  total_duration: String,
+
+  chapterAudioMale: Array,
+  chapterAudioFemale: Array,
+  chapterAudioDramatic: Array,
+
+  text_published_year: String,
   textBook: String,
   epubBook: String,
   bookMp3UrlFemale: String,
