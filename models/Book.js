@@ -16,6 +16,7 @@ const bookSchema = new Schema({
   series: String,
   access_type: String,
   description: String,
+  physicalBookStores: Array,
   category: {
     type: Schema.Types.ObjectId,
     ref: "category",
